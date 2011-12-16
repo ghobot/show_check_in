@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" content="text/html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="keywords" content="HTML,CSS,JavaScript,Jquery,Jquery Mobile" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+<style type="text/css">
+body{
+background: url('icons/bg.jpg') repeat fixed;
+background-size: 100% ;
+}
+
+.slogan{
+text-align: center; 
+}
+
+#search_field{
+width: 80%;
+margin-left: 10%;
+padding-bottom: 20px;
+}
+
+.black{
+background-color: black;
+width: 80%;
+margin-left: 10%;
+opacity: .9;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+
+.black p{
+color:yellow;
+font-size:1em;
+padding:10px 0px 10px 10px;
+font-family: Arial;
+}
+
+.tisch{
+padding: 10px 0px 5px 37% ;
+}
+
+.itp{
+padding: 10px 0px 5px 0px ;
+}
+
+
+#floormap {
+background: url(icons/itpfloormap_320b.png)no-repeat 0 0;
+width: 320px;
+height: 710px;
+opacity: 1.0;
+}
+
+
+
+#legend {
+z-index: 3;
+float: left;
+padding: 10px 0 0 20px;
+}
+
+#cross {
+visibility: hidden;
+z-index: 2;
+position: relative;
+}
+
+.pageitem {
+-webkit-border-radius: 8px;
+background-color: white;
+border: #878787 solid 1px;
+font-size: 12pt;
+overflow: hidden;
+padding: 0;
+position: relative;
+display: block;
+height: auto;
+width: auto;
+margin: 3px 9px 17px;
+list-style: none;
+}
+
+#content {
+width: 100%;
+position: relative;
+min-height: 250px;
+margin-top: 10px;
+height: auto;
+z-index: 0;
+overflow: hidden;
+opacity:1;
+}
+
+#map {
+
+background-color: black;
+opacity:1;
+}
+</style>
+
+</head>
+
+<body>
+    <!-- start of the first page -->
+    <div data-role="page" id="home" data-theme="">
+        <div data-role="header" data-position="fixed" class="homebanner">
+            <a href="#home" data-role="button" data-icon="back" data-transition="slide" data-direction="reverse">BACK</a>
+                <img class="tisch"src="icons/tischplogo.gif" />
+            	<img class="itp" src="icons/itpwlogo.gif" /> 
+            
+            <a href="index.html" data-role="button" data-icon="home">HOME</a>
+        </div>
+
+        <div data-role="fieldcontain" id="search_field">
+         <label for="search"  style="text-align:center;"><p style="color:white; font-family: Arial, sans-serif;"></p></label>
+         <input type="search"  id="search" value="" placeholder="search projects" />            
+         <button type="submit" class="ui-btn-hidden" data-theme="b" aria-disabled="false" >SEARCH</button>           
+        </div><!-- end of search field -->
+        <div class="black">
+        <ul data-role="listview" data-theme="a" >
+        <li><a href="#">cafe</a></li>
+        <li><a href="#">meet a/402</a></li>
+        <li><a href="#">meet b/403</a></li>
+        <li><a href="#">Screen Hallway</a></li>
+        <li><a href="#">japanese room</a></li>
+        <li><a href="#">shop</a></li>
+        <li><a href="#">lounge</a></li>
+        <li><a href="#">Room 50/447</a></li>
+        <li><a href="#">Faculty Hallway</a></li>
+        <li><a href="#">Room 15/445</a></li>
+        <li><a href="#">Spare 444</a></li>
+        <li><a href="#">Hallway</a></li>
+        <li><a href="#">Conference Room/442</a></li>
+        <li><a href="#">Adjunct Office</a></li>                
+        </ul>
+        </div>
+        <div>
+            <a  href="#map" data-role="button" data-icon="grid" data-theme="b" data-iconpos="top" data-transition="pop">MAP OF FLOOR</a>
+        </div><!-- map of floor button -->
+        <div data-role="footer" data-position="fixed">
+            <p class="slogan">ITP Winter Show 2011 Check-in</p>
+            <div id="logo"></div>
+        </div><!-- /footer -->
+    </div><!-- end of the first page -->
+    <!-- *********************************************************************************************************************************-->
+    <!-- page 2/results begin -->
+     <div data-role="page" id="page2" data-theme="">
+        <div data-role="header" data-position="fixed" class="homebanner">
+            <a href="#home" data-role="button" data-icon="back" data-transition="slide" data-direction="reverse">BACK</a>
+            <img class="tisch"src="icons/tischplogo.gif" />
+            <img class="itp" src="icons/itpwlogo.gif" /> 
+            <a href="index.html" data-role="button" data-icon="home" data-transition="slidedown" data-direction="reverse">HOME</a>
+            <h1>{:room:}PROJECTS</h1>
+        </div>   
+        <div data-role="content" class="page-content">
+        	<ul  data-role="listview" class="ui-listview"> 
+        	{:projects:}
+        		<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true">
+        			<div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+						<img src="http://placehold.it/150" class="ui-li-thumb">
+						<h3 class="ui-li-heading">{:project:}</h3>
+						<p class="ui-li-desc">{:name:}</p>
+						</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+					</div>
+				</li>
+				<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true">
+        			<div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+						<img src="http://placehold.it/150" class="ui-li-thumb">
+						<h3 class="ui-li-heading">{:project:}</h3>
+						<p class="ui-li-desc">{:name:}</p>
+						</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+					</div>
+				</li>
+				<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true">
+        			<div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+						<img src="http://placehold.it/150" class="ui-li-thumb">
+						<h3 class="ui-li-heading">{:project:}</h3>
+						<p class="ui-li-desc">{:name:}</p>
+						</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+					</div>
+				</li>
+				<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true">
+        			<div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+						<img src="http://placehold.it/150" class="ui-li-thumb">
+						<h3 class="ui-li-heading">{:project:}</h3>
+						<p class="ui-li-desc">{:name:}</p>
+						</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+					</div>
+				</li>
+				<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true">
+        			<div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+						<img src="http://placehold.it/150" class="ui-li-thumb">
+						<h3 class="ui-li-heading">{:project:}</h3>
+						<p class="ui-li-desc">{:name:}</p>
+						</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+					</div>
+				</li>
+				<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true">
+        			<div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+						<img src="http://placehold.it/150" class="ui-li-thumb">
+						<h3 class="ui-li-heading">{:project:}</h3>
+						<p class="ui-li-desc">{:name:}</p>
+						</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+					</div>
+				</li>
+        	</ul>  
+      	</div><!-- /content -->
+         <div data-role="footer" data-position="fixed">
+            <p class="slogan">ITP Winter Show 2011 Check-in</p>
+        </div><!-- /footer -->
+    </div><!-- results/page 2 ends -->
+    <!-- *********************************************************************************************************************************-->
+    <!-- page 3 project view begins -->
+
+   <div data-role="page" id="page3" data-theme="">
+        <div data-role="header" data-position="fixed" class="homebanner">
+            <a href="#home" data-role="button" data-icon="back" data-transition="slide" data-direction="reverse">BACK</a>
+            <img class="tisch"src="icons/tischplogo.gif" />
+            <img class="itp" src="icons/itpwlogo.gif" /> 
+            <a href="index.html" data-role="button" data-icon="home" data-transition="slidedown" data-direction="reverse">HOME</a>
+        </div>
+
+<!-- /header -->
+		<div class="page-content" data-transition="slide">
+		<h1 style="color:white;">
+			<ul data-role="listview">
+				<li data-role="list-divider" role="heading" class>Project View</li>
+				<li>{:project:}</li>
+				<li>{:idpicture:}</li>
+				<li>{:name:}</li>
+				<li>{:status:}</li>
+			</ul>
+		</h1>
+		</div>
+        <div data-role="footer" data-position="fixed" class="nav-techcrumbs">
+            <p class="slogan">ITP Winter Show 2011 Check-in</p>
+            <div id="logo"></div>
+        </div><!-- /footer -->
+
+    </div><!-- where/page 3 ends -->
+    <!-- *************************************************************************************************************************************-->
+    <!-- page 4/map -->
+
+<div data-role="page" id="map" data-theme="" data-transition="slide" data-direction="reverse">
+   
+   
+<script type="text/javascript">
+$(document).ready(function(){
+function updatePins(){
+	var url = "http://itp.nyu.edu/~ji405/itpguestbook/get_MapCoordinates.php";
+	var xmlHttp;
+	if (window.XMLHttpRequest) {
+		xmlHttp = new window.XMLHttpRequest();
+	}
+	else {
+		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	xmlHttp.open('GET', url, true);
+	xmlHttp.onreadystatechange = function() { 
+		printPins(xmlHttp);
+	};
+	xmlHttp.send(null);
+}
+	
+function printPins(content){
+	if (content.readyState != 4) return;
+	var result = content.responseText;
+	document.getElementById('pins').innerHTML = result;
+}
+
+window.onload = updatePins();
+window.onload = function() {
+  setTimeout(function(){window.scrollTo(0, 1);}, 100);
+}
+
+})
+</script>
+   
+        <div data-role="header" data-position="fixed" class="homebanner">
+            <a href="#home" data-role="button" data-icon="back" data-transition="slide" data-direction="reverse">BACK</a>
+            <img class="tisch"src="icons/tischplogo.gif" />
+            <img class="itp" src="icons/itpwlogo.gif" /> 
+            <a href="index.html" data-role="button" data-icon="home" data-transition="slidedown" data-direction="reverse">HOME</a>
+        </div>
+   
+	<!-- /header -->
+		<div id="content" class="page-content">
+			<ul class="pageitem">
+				<div id="legend">
+					<img src="icons/square_grey.gif"> 
+					= projects
+				</div>
+				<div id="floormap">
+					<img id="cross" src="icons/square_grey.gif">
+					<div id="pins"></div>
+				</div>			
+			</ul>
+		</div>		
+        <div data-role="footer" data-position="fixed">
+            <p class="slogan">ITP Winter Show 2011 Check-in</p>
+            <div id="logo"></div>
+        </div><!-- /footer -->
+
+    </div><!-- page 4 ends -->
+    <!-- *************************************************************************************************************************************-->
+
+
+  </body>
+</html>
