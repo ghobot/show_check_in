@@ -1,0 +1,84 @@
+#map {
+
+background-color: black;
+opacity:1;
+}
+
+
+
+.greendot{
+display: block ;
+width: 8px;
+height: 8px;
+background: #00FF00;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+}
+
+.reddot{
+display: block ;
+width: 8px;
+height: 8px;
+background: #FF0000;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+}
+
+.slogan{
+text-align: center; 
+}
+
+#search_field{
+width: 80%;
+margin-left: 10%;
+padding-bottom: 20px;
+}
+
+.black{
+background-color: black;
+width: 80%;
+margin-left: 10%;
+opacity: .9;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+
+.black p{
+color:yellow;
+font-size:1em;
+padding:10px 0px 10px 10px;
+font-family: Arial;
+}
+
+.tisch{
+font-family: Arial, sans-serif;
+color: #9999ff;
+font-size: 1.3em;
+text-align: center;
+display: inline;
+padding: 0 0 0px 45%;
+
+}
+
+.itp{
+
+font-family: Arial, sans-serif;
+color: #eee;
+font-size: 1.3em;
+text-align: center;
+display: inline;
+
+}
+
+
+#legend {
+z-index: 3;
+float: left;
+padding: 10px 0 0 20px;
+}
+
+.homebanner{
+padding: 0px 0px 20px 0px;
+
+}
