@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-	<link rel="stylesheet" href="stylesheets/checkin.css" />
+		<link rel="stylesheet" href="stylesheets/checkin.css" />
 
 <style type="text/css">
 body{
@@ -94,49 +94,37 @@ display: inline;
 
 
 </style>
-
 </head>
 
 <body>
-    <!-- start of the first page -->
-    <div data-role="page" id="home" data-theme="">
+    <!-- page 3 project detail -->
+
+   <div data-role="page" id="page3" data-theme="">
         <div data-role="header" data-position="fixed" class="homebanner">
             <a href="#home" data-role="button" data-icon="back" data-transition="slide" data-direction="reverse">BACK</a>
-                <p class="tisch">Tisch</p><p class="itp">Itp</p> 
-           	   <a href="index.html" data-role="button" data-icon="home">HOME</a>
+              <p class="tisch">Tisch</p><p class="itp">Itp</p> 
+            <a href="index.html" data-role="button" data-icon="home" data-transition="slidedown" data-direction="reverse">HOME</a>
         </div>
 
-        <div data-role="fieldcontain" id="search_field">
-         <label for="search"  style="text-align:center;"><p style="color:white; font-family: Arial, sans-serif;"></p></label>
-         <input type="search"  id="search" value="" placeholder="search projects" />            
-         <button type="submit" class="ui-btn-hidden" data-theme="b" aria-disabled="false" >SEARCH</button>           
-        </div><!-- end of search field -->
-        <div class="black">
-        <ul data-role="listview" data-theme="a" >
-        <li><a href="#">cafe</a></li>
-        <li><a href="#">meet a/402</a></li>
-        <li><a href="#">meet b/403</a></li>
-        <li><a href="#">Screen Hallway</a></li>
-        <li><a href="#">japanese room</a></li>
-        <li><a href="#">shop</a></li>
-        <li><a href="#">lounge</a></li>
-        <li><a href="#">Room 50/447</a></li>
-        <li><a href="#">Faculty Hallway</a></li>
-        <li><a href="#">Room 15/445</a></li>
-        <li><a href="#">Spare 444</a></li>
-        <li><a href="#">Hallway</a></li>
-        <li><a href="#">Conference Room/442</a></li>
-        <li><a href="#">Adjunct Office</a></li>                
-        </ul>
-        </div>
-        <div>
-            <a  href="map.html" data-role="button" data-icon="grid" data-theme="b" data-iconpos="top" data-transition="pop">MAP OF FLOOR</a>
-        </div><!-- map of floor button -->
-        <div data-role="footer" data-position="fixed">
+<!-- /header -->
+		<div class="page-content" data-transition="slide">
+		<h1 style="color:white;">
+			<ul data-role="listview">
+				<li data-role="list-divider" role="heading" class>Project View</li>
+				<li>{:project:}</li>
+				<li>{:idpicture:}</li>
+				<li>{:name:}</li>
+				<li>{:status:}</li>
+			</ul>
+		</h1>
+		</div>
+        <div data-role="footer" data-position="fixed" class="nav-techcrumbs">
             <p class="slogan">ITP Winter Show 2011 Check-in</p>
             <div id="logo"></div>
         </div><!-- /footer -->
+
     </div>
+ 
 
   </body>
 </html>
